@@ -1,0 +1,982 @@
+h34068
+s 00025/00019/00121
+d D 1.33 92/12/08 10:48:00 rsb 33 32
+c Changed DEC to f2c for f77
+c 
+e
+s 00011/00009/00129
+d D 1.32 92/08/23 11:28:50 rsb 32 31
+c Added unrestricted
+c 
+e
+s 00002/00000/00136
+d D 1.31 92/02/02 12:25:21 rsb 31 30
+c 
+e
+s 00008/00001/00128
+d D 1.30 92/02/02 12:07:16 rsb 30 29
+c 
+e
+s 00001/00002/00128
+d D 1.29 92/02/02 11:56:29 rsb 29 28
+c 
+e
+s 00001/00001/00129
+d D 1.28 92/02/02 11:34:46 rsb 28 27
+c 
+e
+s 00005/00006/00125
+d D 1.27 92/02/02 11:08:27 rsb 27 26
+c Cleaned up Fortran files
+e
+s 00003/00003/00128
+d D 1.26 91/08/14 13:59:50 rsb 26 25
+c switched eigenvalue routines
+e
+s 00001/00001/00130
+d D 1.25 91/08/07 11:24:32 rsb 25 24
+c DOS STACK 16000
+e
+s 00003/00003/00128
+d D 1.24 91/08/06 22:58:12 rsb 24 23
+c chi
+e
+s 00003/00003/00128
+d D 1.23 91/08/05 22:08:08 rsb 23 22
+c 66.f
+e
+s 00003/00003/00128
+d D 1.22 91/08/05 20:57:30 rsb 22 21
+c 
+e
+s 00003/00003/00128
+d D 1.21 91/08/05 20:38:03 rsb 21 20
+c norm.f
+e
+s 00005/00003/00126
+d D 1.20 91/08/05 13:42:40 rsb 20 19
+c cliff.c
+e
+s 00001/00001/00128
+d D 1.19 91/08/02 11:39:44 rsb 19 18
+c included spatial and estimate
+e
+s 00003/00003/00126
+d D 1.18 91/08/02 11:38:05 rsb 18 17
+c included spatial and estimate
+e
+s 00016/00008/00113
+d D 1.17 91/08/01 13:53:56 rsb 17 16
+c included spatial and estimate in makefile
+e
+s 00001/00001/00120
+d D 1.16 91/07/31 16:22:02 rsb 16 15
+c 
+e
+s 00002/00002/00119
+d D 1.15 91/07/31 16:11:59 rsb 15 14
+c 
+e
+s 00000/00000/00121
+d D 1.14 91/07/31 16:08:33 rsb 14 13
+c 
+e
+s 00017/00017/00104
+d D 1.13 91/07/29 13:57:23 rsb 13 12
+c new sp entries
+e
+s 00030/00040/00091
+d D 1.12 91/07/29 13:41:30 rsb 12 11
+c DOS and Sparc changes
+e
+s 00004/00000/00127
+d D 1.11 91/07/29 11:35:29 rsb 11 10
+c 
+e
+s 00003/00003/00124
+d D 1.10 91/07/29 10:59:34 rsb 10 9
+c 
+e
+s 00030/00048/00097
+d D 1.9 91/07/29 10:54:52 rsb 9 8
+c simplifications
+e
+s 00007/00008/00138
+d D 1.8 91/07/05 12:11:50 rsb 8 7
+c 
+e
+s 00049/00017/00097
+d D 1.7 91/07/04 13:52:16 rsb 7 6
+c 
+e
+s 00001/00000/00113
+d D 1.6 91/07/04 12:48:34 rsb 6 5
+c inserted #ident
+e
+s 00004/00004/00109
+d D 1.5 91/07/04 11:02:06 rsb 5 4
+c 
+e
+s 00004/00004/00109
+d D 1.4 91/07/04 09:53:53 rsb 4 3
+c 
+e
+s 00006/00006/00107
+d D 1.3 91/07/04 09:13:51 rsb 3 2
+c DOS=0
+e
+s 00014/00011/00099
+d D 1.2 91/07/03 22:04:28 rsb 2 1
+c 
+e
+s 00110/00000/00000
+d D 1.1 91/07/03 21:37:06 rsb 1 0
+c date and time created 91/07/03 21:37:06 by rsb
+e
+u
+U
+f e 0
+t
+T
+I 31
+# Spatial - SYSTAT compatible module for spatial statistics
+# Copyright (C) 1990, 1991, 1992, Roger Bivand
+E 31
+I 6
+#ident	"%W%"
+E 6
+I 1
+D 12
+.SUFFIXES: .f .f~ .sh .sh~ #.obj .exe
+E 12
+I 12
+.SUFFIXES: .f .f~ .sh .sh~ .obj .exe
+E 12
+
+# m for c maths, F77 for fortran - no i/o needed
+# flags for profiling, debugging, optimising etc.
+# needs -Ml for intel 286 processors
+
+# MICROPORT SV/AT
+#F77= f77
+#CC= cc
+#LIBS= -lm -lF77
+D 7
+#FFLAGS= -I2
+E 7
+I 7
+#FFLAGS=
+E 7
+#GFLAGS=
+D 3
+#CFLAGS= -Ml -g
+#DEFINES=
+E 3
+I 3
+D 5
+#DEFINES= -DDOS="0"
+E 5
+I 5
+#DEFINES=
+E 5
+#CFLAGS= -Ml -g $(DEFINES)
+E 3
+
+# MICROPORT SVR4
+D 33
+F77= f2c
+CC= cc
+D 7
+LIBS= -L../lib -lsystat -lm -lF77
+E 7
+I 7
+LIBS= -lm -lF77
+E 7
+FFLAGS= -I2
+GFLAGS=
+D 3
+CFLAGS= -g
+DEFINES=
+E 3
+I 3
+D 4
+DEFINES= -DDOS="0"
+CFLAGS= -g $(DEFINES)
+E 4
+I 4
+D 5
+DEFINES= -DDOS=0
+CFLAGS= "-g $(DEFINES)"
+E 5
+I 5
+DEFINES=
+D 7
+CFLAGS= -g
+E 7
+I 7
+CFLAGS= -g $(DEFINES)
+E 7
+E 5
+E 4
+E 3
+
+I 12
+# Sparc/Motorola - change EL and EB in defs.h
+#F77= f77
+E 33
+I 33
+#F77= f2c
+E 33
+#CC= cc
+D 33
+#LIBS= /usr/lang/SC0.0/libF77.a -lm
+E 33
+I 33
+#LIBS= -lm -lF77
+E 33
+#FFLAGS= -I2
+#GFLAGS=
+#DEFINES=
+#CFLAGS= -g $(DEFINES)
+
+E 12
+I 7
+D 33
+# MIPS/DECstation
+E 33
+I 33
+# Sparc/Motorola - change EL and EB in defs.h
+E 33
+#F77= f77
+#CC= cc
+D 33
+#LIBS= -lm -lF77
+E 33
+I 33
+#LIBS= /usr/lang/SC0.0/libF77.a -lm
+E 33
+#FFLAGS= -I2
+#GFLAGS=
+#DEFINES=
+#CFLAGS= -g $(DEFINES)
+
+I 33
+# MIPS/DECstation
+F77= f2c
+CC= cc
+LIBS= /usr/users/rsb/lib/libF77.a -lm
+FFLAGS= -I2
+GFLAGS=
+DEFINES=
+CFLAGS= -g $(DEFINES)
+
+E 33
+E 7
+# MSDOS, MicroSoft CL and FL
+#CC= cl
+#F77= fl
+D 7
+#LIBS= 
+E 7
+I 7
+#LIBS= LLIBCE LLIBFORE
+E 7
+D 3
+#CFLAGS= -AL -Od -G0
+E 3
+#FFLAGS= -I2
+#GFLAGS=
+D 3
+#DEFINES= -DDOS
+E 3
+I 3
+D 5
+#DEFINES= -DDOS="1"
+E 5
+I 5
+#DEFINES= -DDOS
+E 5
+D 7
+#CFLAGS= -AL -Od -G0 $(DEFINES)
+E 7
+I 7
+D 12
+#CFLAGS= -AL -Od -G0 -FPi $(DEFINES)
+E 12
+I 12
+#CFLAGS= -AL -Od -G0 -FPi
+E 12
+E 7
+E 3
+
+# for Unix systems:
+D 2
+OBJECTS= init.o xtok.o help.o index.o ginq01.o
+E 2
+
+D 2
+DEPENDENTS= ../h/defs.h ../h/sysa.h ../h/xtok.h ../h/help.h \
+	banner.h x_specif.h h_specif.h index.h \
+	init.c x_specif.c xtok.c help.c index.c \
+	ginq01.f \
+	xtok.o help.o index.o ginq01.o init.o 
+E 2
+I 2
+D 9
+HHEADERS= ../h/defs.h ../h/sysa.h ../h/xtok.h ../h/help.h
+E 9
+I 9
+D 17
+HEADERS= defs.h sysa.h sysfile3.h
+E 17
+I 17
+HEADERS= defs.h sysa.h sysfile3.h map.h model.h
+I 32
+SOURCES= cliff.c spatial.c estimate.c compile.c main_sp.c exec.c use.c \
+        swap.c filehand.c save.c mylloc.c ursm.c
+FSOURCES= create.f futil1s.f simp_ml.f AS.f NSWC.f GAL.f
+F2CSOURCES= create.c futils1.c simp_ml.c AS.c NSWC.c GAL.c
+E 32
+E 17
+E 9
+E 2
+
+D 2
+LDEPENDENTS= cur.c cur.o exec.c exec.o use.c use.o swap.c swap.o \
+	save.c save.o filehand.c filehand.o
+E 2
+I 2
+D 9
+HEADERS= banner.h x_specif.h h_specif.h index.h
+E 9
+I 9
+D 13
+CSOURCES= index.c main_ind.c exec.c use.c swap.c filehand.c save.c mylloc.c
+FSOURCES= ginq01.f 
+I 11
+F2CSOURCES= ginq01.c
+E 13
+I 13
+D 17
+CSOURCES= compile.c main_sp.c exec.c use.c swap.c filehand.c save.c mylloc.c
+FSOURCES= clsr01.f cqij01.f create.f cver01.f dcpy.f eigen.f loc.f
+F2CSOURCES= clsr01.c cqij01.c create.c cver01.c dcpy.c eigen.c loc.c
+E 17
+I 17
+D 19
+CSOURCES= spatial.c estimate.c compile.c main_sp.c exec.c use.c
+E 19
+I 19
+D 20
+CSOURCES= spatial.c estimate.c compile.c main_sp.c exec.c use.c \
+E 20
+I 20
+D 32
+CSOURCES= cliff.c spatial.c estimate.c compile.c main_sp.c exec.c use.c \
+E 20
+E 19
+	swap.c filehand.c save.c mylloc.c
+D 26
+FSOURCES= clsr01.f cqij01.f create.f cver01.f dcpy.f eigen.f loc.f \
+E 26
+I 26
+D 27
+FSOURCES= clsr01.f cqij01.f create.f cver01.f myseig.f \
+E 26
+D 18
+	lmtest.f zer8.f incl2.f rbeta.f
+E 18
+I 18
+D 21
+	zer8.f incl2.f rbeta.f
+E 21
+I 21
+D 22
+	zer8.f incl2.f rbeta.f norm.f
+E 22
+I 22
+D 23
+	zer8.f incl2.f rbeta.f 
+E 23
+I 23
+D 24
+	zer8.f incl2.f rbeta.f 66.f
+E 24
+I 24
+	zer8.f incl2.f rbeta.f 66.f chi.f
+E 24
+E 23
+E 22
+E 21
+E 18
+D 26
+F2CSOURCES= clsr01.c cqij01.c create.c cver01.c dcpy.c eigen.c loc.c \
+E 26
+I 26
+F2CSOURCES= clsr01.c cqij01.c create.c cver01.c myseig.c \
+E 26
+D 18
+	lmtest.c zer8.c incl2.c rbeta.c
+E 18
+I 18
+D 21
+	zer8.c incl2.c rbeta.c
+E 21
+I 21
+D 22
+	zer8.c incl2.c rbeta.c norm.c
+E 22
+I 22
+D 23
+	zer8.c incl2.c rbeta.c 
+E 23
+I 23
+D 24
+	zer8.c incl2.c rbeta.c 66.c
+E 24
+I 24
+	zer8.c incl2.c rbeta.c 66.c chi.c
+E 27
+I 27
+FSOURCES= create.f futils.f AS.f NSWC.f GAL.f
+F2CSOURCES= create.c futils.c AS.c NSWC.c GAL.c
+E 27
+E 24
+E 23
+E 22
+E 21
+E 18
+E 17
+E 13
+E 11
+E 9
+E 2
+
+E 32
+I 2
+D 8
+CSOURCES= init.c x_specif.c xtok.c help.c index.c
+E 8
+I 8
+D 9
+CSOURCES= init.c xtok.c help.c index.c x_specif.c 
+E 8
+FSOURCES= ginq01.f ginq01.c
+E 9
+I 9
+D 13
+OBJECTS= index.o ginq01.o main_ind.o exec.o use.o swap.o filehand.o \
+	save.o mylloc.o
+E 13
+I 13
+D 17
+OBJECTS= compile.o main_sp.o exec.o use.o swap.o filehand.o \
+	save.o mylloc.o clsr01.o cqij01.o create.o cver01.o \
+	dcpy.o eigen.o loc.o
+E 17
+I 17
+D 20
+OBJECTS= spatial.o estimate.o compile.o main_sp.o exec.o use.o \
+E 20
+I 20
+OBJECTS= cliff.o spatial.o estimate.o compile.o main_sp.o exec.o use.o \
+E 20
+D 27
+	swap.o filehand.o save.o mylloc.o clsr01.o cqij01.o create.o \
+D 18
+	cver01.o dcpy.o eigen.o loc.o lmtest.o zer8.o incl2.o rbeta.o
+E 18
+I 18
+D 21
+	cver01.o dcpy.o eigen.o loc.o zer8.o incl2.o rbeta.o
+E 21
+I 21
+D 22
+	cver01.o dcpy.o eigen.o loc.o zer8.o incl2.o rbeta.o norm.o
+E 22
+I 22
+D 23
+	cver01.o dcpy.o eigen.o loc.o zer8.o incl2.o rbeta.o 
+E 23
+I 23
+D 24
+	cver01.o dcpy.o eigen.o loc.o zer8.o incl2.o rbeta.o 66.o
+E 24
+I 24
+D 26
+	cver01.o dcpy.o eigen.o loc.o zer8.o incl2.o rbeta.o 66.o chi.o
+E 26
+I 26
+	cver01.o myseig.o zer8.o incl2.o rbeta.o 66.o chi.o
+E 27
+I 27
+D 28
+	swap.o filehand.o save.o mylloc.o create.o \
+E 28
+I 28
+D 32
+	swap.o filehand.o save.o mylloc.o \
+E 28
+	create.o futils.o AS.o NSWC.o GAL.o
+E 32
+I 32
+        swap.o filehand.o save.o mylloc.o ursm.o \
+        create.o futils1.o simp_ml.o AS.o NSWC.o GAL.o
+E 32
+E 27
+E 26
+E 24
+E 23
+E 22
+E 21
+E 18
+E 17
+E 13
+E 9
+
+D 9
+OBJECTS= init.o xtok.o help.o index.o ginq01.o
+
+LSOURCES= ../lib/cur.c ../lib/exec.c ../lib/use.c ../lib/swap.c \
+	../lib/save.c ../lib/filehand.c 
+LCLEAN= cur.c exec.c use.c swap.c filehand.c save.c 
+
+E 9
+E 2
+# for DOS systems:
+D 7
+#OBJECTS= index.obj cur.obj init.obj xtok.obj exec.obj by.obj select.obj \
+#	use.obj swap.obj filehand.obj help.obj save.obj ginq01.obj \
+#	edline.obj edit.obj termio.obj
+#SOURCES= $(SOURCES) termio.c
+E 7
+I 7
+D 9
+#LOBJECTS= cur.obj exec.obj use.obj swap.obj filehand.obj save.obj
+#OBJECTS= xtok.obj help.obj ginq01.obj init.obj 
+E 9
+I 9
+D 12
+#LOBJECTS= main_ind.obj exec.obj use.obj swap.obj filehand.obj save.obj mylloc.obj
+#OBJECTS= ginq01.obj 
+E 9
+#TARGET= index.obj 
+E 12
+I 12
+D 13
+#OBJECTS= main_ind.obj exec.obj use.obj swap.obj filehand.obj save.obj \
+#	mylloc.obj index.obj bigfor.obj 
+E 13
+I 13
+#OBJECTS= main_sp.obj exec.obj use.obj swap.obj filehand.obj save.obj \
+D 17
+#	mylloc.obj compile.obj bigfor.obj 
+E 17
+I 17
+D 20
+#	mylloc.obj compile.obj bigfor.obj spatial.obj estimate.obj 
+E 20
+I 20
+D 32
+#	mylloc.obj compile.obj bigfor.obj spatial.obj estimate.obj cliff.obj
+E 32
+I 32
+#	mylloc.obj compile.obj bigfor.obj spatial.obj estimate.obj \
+#	ursm.obj cliff.obj
+E 32
+E 20
+E 17
+E 13
+#BIGFOR= bigfor.for
+E 12
+E 7
+
+I 7
+
+E 7
+D 9
+index:	$(OBJECTS) ../lib/libsystat.a
+D 8
+	$(CC) $(CFLAGS) -o index $(OBJECTS) $(LIBS)
+E 8
+I 8
+	$(CC) $(CFLAGS) -o index $(OBJECTS) ../lib/libsystat.a $(LIBS)
+E 8
+	touch banner.sh
+E 9
+I 9
+D 13
+index:	$(OBJECTS)
+	$(CC) $(CFLAGS) -o index $(OBJECTS) $(LIBS)
+E 9
+	size index
+E 13
+I 13
+spatial:	$(OBJECTS)
+	$(CC) $(CFLAGS) -o spatial $(OBJECTS) $(LIBS)
+	size spatial
+E 13
+
+D 2
+../lib/libsystat.a:	
+E 2
+I 2
+D 9
+../lib/libsystat.a:	$(HHEADERS) $(LSOURCES)
+E 2
+D 7
+	cd ../lib; $(MAKE) CFLAGS=$(CFLAGS)
+E 7
+I 7
+	cd ../lib; $(MAKE) CFLAGS="$(CFLAGS)"
+	cd ../lib; ar ts libsystat.a
+E 7
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<
+
+E 9
+D 8
+.c~.o:
+	$(GET) $(GFLAGS) -p $< >$*.c
+	$(CC) $(CFLAGS) -c $*.c
+E 8
+I 8
+D 12
+.c~.c:
+D 9
+	$(GET) $(GFLAGS) -p $< >$(*F).c
+E 9
+I 9
+D 10
+	$(GET) $(GFLAGS) -p $< >$*.c
+E 10
+I 10
+	$(GET) $(GFLAGS) $<
+E 10
+E 9
+E 8
+
+I 7
+D 9
+# used for UNIX but not DOS
+E 9
+E 7
+.h~.h:
+D 9
+	cd $(<D); $(GET) $(GFLAGS) $(<F)
+E 9
+I 9
+D 10
+	$(GET) $(GFLAGS) -p $< >$*.h
+E 10
+I 10
+	$(GET) $(GFLAGS) $<
+E 10
+E 9
+
+D 7
+# for f2c conversion
+E 7
+.f~.f:
+D 10
+	$(GET) $(GFLAGS) -p $< >$*.f
+E 10
+I 10
+	$(GET) $(GFLAGS) $<
+E 10
+
+E 12
+I 9
+.c.o:
+	$(CC) $(CFLAGS) -c $<
+
+E 9
+I 7
+# for f2c conversion
+E 7
+D 29
+.f.o:
+E 29
+I 29
+D 30
+.f.c:
+E 30
+I 30
+.f.o:
+E 30
+E 29
+	$(F77) $(FFLAGS) $<
+I 30
+	$(CC) $(CFLAGS) -c $*.c
+E 30
+D 29
+	$(CC) $(CFLAGS) -c $*.c
+E 29
+
+# for native f77 compliers
+D 7
+#.f~.o:
+#	$(GET) $(GFLAGS) -p $< >$*.f
+E 7
+I 7
+#.f.o:
+E 7
+#	f77 $(CFLAGS) $(FFLAGS) -c $<
+
+D 9
+.sh~.sh:
+	$(GET) $(GFLAGS) -p $< >$*.sh
+E 9
+
+# DOS rules:
+D 7
+#index.exe:	$(OBJECTS)
+#	cl $(CFLAGS) -Feindex.exe "*.obj" -link -STACK:4000 $(LIBS)
+E 7
+I 7
+#
+D 12
+#index.exe:	systat.lib specif.lib $(TARGET)
+#	cl $(CFLAGS) -Feindex.exe $(TARGET) -link -STACK:4000 \
+#	systat.lib specif.lib $(LIBS) -NOD
+E 7
+#	touch banner.sh
+E 12
+I 12
+D 13
+#index.exe:	$(OBJECTS)
+#	cl $(CFLAGS) -Feindex.exe "*.obj"  -link -STACK:4000 $(LIBS) -NOD
+E 13
+I 13
+#spatial.exe:	$(OBJECTS)
+D 25
+#	cl $(CFLAGS) -Fespatial.exe "*.obj"  -link -STACK:4000 $(LIBS) -NOD
+E 25
+I 25
+#	cl $(CFLAGS) -Fespatial.exe "*.obj"  -link -STACK:16000 $(LIBS) -NOD
+E 25
+E 13
+E 12
+D 7
+
+E 7
+I 7
+#
+D 12
+#systat.lib: $(LOBJECTS)
+#	rm -f systat.lib
+#	lib systat $(LOBJECTS)
+#
+#specif.lib: $(OBJECTS)
+#	rm -f specif.lib
+#	lib specif $(OBJECTS)
+#
+E 12
+E 7
+#.c.obj:
+#	cl $(CFLAGS) $(DEFINES) -c $<
+D 7
+
+E 7
+I 7
+#
+E 7
+D 12
+#.f.obj:
+#	unix2dos $< >$*.for
+#	fl $(CFLAGS) -c $*.for
+#	-rm -f $*.for
+I 7
+#
+E 12
+I 12
+#bigfor.obj:	$(FSOURCES)
+#	cat $(FSOURCES) | unix2dos > bigfor.for
+#	fl $(CFLAGS) $(FFLAGS) -c bigfor.for
+E 12
+E 7
+
+I 12
+
+E 12
+D 8
+init.o:		../h/defs.h ../h/sysa.h banner.h init.c
+xtok.o:		../h/defs.h ../h/sysa.h x_specif.c ../h/xtok.h x_specif.h xtok.c
+help.o:		../h/defs.h ../h/sysa.h ../h/help.h h_specif.h help.c
+E 8
+I 8
+D 9
+init.o:		../h/defs.h ../h/sysa.h banner.h ../lib/init.c
+xtok.o:		../h/defs.h ../h/sysa.h x_specif.c ../h/xtok.h x_specif.h ../lib/xtok.c
+help.o:		../h/defs.h ../h/sysa.h ../h/help.h h_specif.h ../lib/help.c
+E 8
+index.o:	../h/defs.h ../h/sysa.h index.h index.c
+E 9
+I 9
+D 13
+main_ind.o:	defs.h sysa.h main_ind.c
+E 13
+I 13
+main_sp.o:	defs.h sysa.h main_sp.c
+E 13
+exec.o:		defs.h sysa.h exec.c
+D 15
+use.o:		defs.h sysfile3.h use.c
+E 15
+I 15
+use.o:		defs.h sysa.h sysfile3.h use.c
+E 15
+filehand.o:	defs.h sysa.h sysfile3.h filehand.c
+save.o:		defs.h sysa.h sysfile3.h save.c
+swap.o:		defs.h swap.c
+mylloc.o:	defs.h mylloc.c
+I 27
+
+E 27
+D 13
+index.o:	defs.h sysa.h index.c
+E 9
+ginq01.o:	ginq01.f
+E 13
+I 13
+D 16
+compile.o:	defs.h sysa.h compile.c
+E 16
+I 16
+compile.o:	defs.h sysa.h map.h compile.c
+I 17
+spatial.o:	defs.h sysa.h map.h model.h spatial.c
+estimate.o:	defs.h sysa.h map.h model.h estimate.c
+I 20
+cliff.o:	defs.h sysa.h map.h cliff.c
+I 32
+ursm.o:		defs.h sysa.h map.h model.h ursm.c
+E 32
+I 30
+D 33
+create.o:	create.f
+D 32
+futils.o:	futils.f
+E 32
+I 32
+futils1.o:	futils1.f
+simp_ml.o:	simp_ml.f
+E 32
+AS.o:		AS.f
+NSWC.o:		NSWC.f
+GAL.o:		GAL.f
+E 33
+I 33
+create.o:	create.c
+futils1.o:	futils1.c
+simp_ml.o:	simp_ml.c
+AS.o:		AS.c
+NSWC.o:		NSWC.c
+GAL.o:		GAL.c
+create.c:	create.f
+futils1.c:	futils1.f
+simp_ml.c:	simp_ml.f
+AS.c:		AS.f
+NSWC.c:		NSWC.f
+GAL.c:		GAL.f
+E 33
+E 30
+E 20
+E 17
+E 16
+E 13
+I 7
+
+D 9
+#cur.obj:		../h/defs.h ../h/sysa.h
+#init.obj:		../h/defs.h ../h/sysa.h banner.h
+#xtok.obj:		../h/defs.h x_specif.c  ../h/xtok.h ../h/sysa.h x_specif.h
+#exec.obj:		../h/defs.h ../h/sysfile3.h ../h/sysa.h
+#use.obj:		../h/defs.h ../h/sysfile3.h
+#filehand.obj:		../h/defs.h ../h/sysfile3.h ../h/sysa.h
+#help.obj:		../h/defs.h ../h/help.h ../h/sysa.h h_specif.h
+#index.obj:		../h/defs.h index.h  ../h/sysa.h 
+#save.obj: 		../h/defs.h ../h/sysa.h ../h/sysfile3.h 
+#swap.obj:
+E 7
+
+D 4
+banner.h:	banner.sh
+	sh banner.sh $(CFLAGS) $(DEFINES) > banner.h
+E 4
+I 4
+banner.h:	banner.sh ../h/defs.h
+	sh banner.sh $(CFLAGS) > banner.h
+E 4
+
+clean:
+D 2
+	rm -f $(DEPENDENTS)	
+	cd ../lib; rm -f $(LDEPENDENTS)
+E 2
+I 2
+	rm -f $(OBJECTS) $(CSOURCES) $(FSOURCES) $(HHEADERS) $(HEADERS)
+	rm -f $(LSOURCES) $(LCLEAN)
+E 9
+I 9
+D 12
+#main_ind.obj:		defs.h sysa.h
+#exec.obj:		defs.h sysfile3.h sysa.h
+#use.obj:		defs.h sysfile3.h
+#filehand.obj:		defs.h sysfile3.h sysa.h
+#index.obj:		defs.h sysa.h 
+#save.obj: 		defs.h sysa.h sysfile3.h 
+#swap.obj:		defs.h
+#mylloc.obj:		defs.h
+E 12
+I 12
+D 13
+#main_ind.obj:		defs.h sysa.h main_ind.c
+E 13
+I 13
+#main_sp.obj:		defs.h sysa.h main_sp.c
+E 13
+#exec.obj:		defs.h sysfile3.h sysa.h exec.c
+D 15
+#use.obj:		defs.h sysfile3.h use.c
+E 15
+I 15
+#use.obj:		defs.h sysa.h sysfile3.h use.c
+E 15
+#filehand.obj:		defs.h sysfile3.h sysa.h filehand.c
+D 13
+#index.obj:		defs.h sysa.h index.c
+E 13
+I 13
+#compile.obj:		defs.h sysa.h compile.c
+E 13
+#save.obj: 		defs.h sysa.h sysfile3.h save.c
+#swap.obj:		defs.h swap.c
+#mylloc.obj:		defs.h mylloc.c
+I 17
+#spatial.obj:	defs.h sysa.h map.h model.h spatial.c
+#estimate.obj:	defs.h sysa.h map.h model.h estimate.c
+I 20
+#cliff.obj:	defs.h sysa.h map.h cliff.c
+I 30
+#bigfor.obj:	create.f futils.f AS.f NSWC.f GAL.f
+E 30
+E 20
+
+E 17
+E 12
+I 11
+
+clean:
+D 12
+	rm -f $(CSOURCES) $(FSOURCES) $(F2CSOURCES) $(OBJECTS) $(HEADERS)
+E 12
+I 12
+	rm -f $(CSOURCES) $(FSOURCES) $(F2CSOURCES) $(OBJECTS) $(HEADERS) \
+	$(BIGFOR)
+E 12
+E 11
+E 9
+E 2
+E 1
