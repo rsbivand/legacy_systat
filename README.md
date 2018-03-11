@@ -1,3 +1,5 @@
+## Legacy SCCS files from Bivand (1992) 
+
 SYSTAT-COMPATIBLE SOFTWARE FOR MODELING SPATIAL DEPENDENCE AMONG OBSERVATIONS
 
 Computers & Geosciences Vol. 18, No. 8, pp. 951-963, 1992
